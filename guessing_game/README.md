@@ -20,3 +20,16 @@ fn main() {
 rustam@rustam-zenbook:~/rust-education/guessing_game$ ls 
 Cargo.toml  src
 ```
+
+run game 
+
+```
+rustam@rustam-zenbook:~/rust-education/guessing_game$ cargo run 
+   Compiling guessing_game v0.1.0 (/home/rustam/rust-education/guessing_game)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.23s
+     Running `target/debug/guessing_game`
+Start game
+34
+number = 34
+
+```

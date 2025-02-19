@@ -2,6 +2,10 @@ pub fn add(left: u64, right: u64) -> u64 {
     left + right
 }
 
+pub fn add_two(a: i64) -> i64 {
+    return a + 2; 
+}
+
 #[derive(Debug)]
 struct Rectangle {
     width: u32,
@@ -20,6 +24,10 @@ pub fn greeting(name: &str) -> String {
 
 pub struct Guess {
     value: i32,
+}
+
+fn internal_adder(left: usize, right: usize) -> usize {
+    left + right
 }
 
 impl Guess {
@@ -96,5 +104,11 @@ mod tests {
         } else {
             Err(String::from("two plus two does not equal four"))
         }
+    }
+
+    #[test]
+    fn internal() {
+        let result = internal_adder(2, 2);
+        assert_eq!(result, 4);
     }
 }

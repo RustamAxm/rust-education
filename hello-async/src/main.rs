@@ -140,6 +140,22 @@ async fn multiple_futures() {
     trpl::join_all(futures).await;
 }
 
+async fn demo_race() {
+        let slow = async {
+            println!("'slow' started.");
+            trpl::sleep(Duration::from_millis(100)).await;
+            println!("'slow' finished.");
+        };
+
+        let fast = async {
+            println!("'fast' started.");
+            trpl::sleep(Duration::from_millis(50)).await;
+            println!("'fast' finished.");
+        };
+
+        trpl::race(slow, fast).await;
+}
+
 
 fn main() {
     // simple spawn block
@@ -194,5 +210,8 @@ fn main() {
 
     {
         trpl::run( async { multiple_futures().await} );
+    }
+    {
+        trpl::run( async {demo_race().await} );
     }
 }
